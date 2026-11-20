@@ -1,0 +1,101 @@
+version: v0.4
+project:
+  name: Three Gauge Couplings on a Common Ruler
+  description: >-
+    At exponent 15, the electromagnetic and weak central inputs 137.036 and 0.23121
+    admit exactly two pairs of real bases greater than one in the specified PDT formulas.
+    Their strong readings lie in [0.01923413, 0.01923414] and [0.11728454, 0.11728455].
+    Electromagnetism fixes the product K=ab. The weak response turns at b=7/6, while
+    the strong-to-weak ratio strictly increases. The root greater than one of x⁴=x+1
+    lies on the falling side. For any fixed positive integer exponent the three exact
+    readings jointly identify both bases. A cubic recovers the unique split with a
+    proposed positive strong-to-weak ratio, and substitution gives an exact compatibility test.
+  authors: [Stephanie Alexander]
+  responsible_maintainers: [Stephanie Alexander]
+  license: MIT
+repository:
+  role: substantive-development
+classification:
+  arxiv: [math.CA, hep-ph]
+  msc2020: [26A48, 26C15]
+sources:
+  - title: Three Gauge Couplings on a Common Ruler
+    authors: [Stephanie Alexander]
+    type: original-proof
+    relationship: other
+    location: README.md, Challenge.lean, Solution.lean and the CommonRuler modules
+    note: Fixed-product inverse theorem, full inverse image of the two rounded inputs, rational certificates and compatibility test.
+  - title: CODATA Recommended Values of the Fundamental Physical Constants 2022
+    authors: [CODATA Task Group on Fundamental Constants]
+    id: https://physics.nist.gov/cuu/pdf/wallet_2022.pdf
+    type: other
+    relationship: background
+    author_endorsement: not-contacted
+    note: The rounded low-energy inverse fine-structure input in the earlier entry is 137.036.
+  - title: Physical Constants, Review of Particle Physics 2022
+    authors: [Particle Data Group]
+    id: https://pdg.lbl.gov/2022/reviews/rpp2022-rev-phys-constants.pdf
+    type: paper
+    relationship: background
+    author_endorsement: not-contacted
+    note: Table 1.1 gives the MS-bar weak mixing angle at the Z mass as 0.23121(4).
+  - title: Quantum Chromodynamics, Review of Particle Physics 2024
+    authors: [Particle Data Group]
+    id: https://pdg.lbl.gov/2024/reviews/rpp2024-rev-qcd.pdf
+    type: paper
+    relationship: background
+    author_endorsement: not-contacted
+    note: The figure 9.5 world average 0.1180(9) is used for the empirical comparison after the inverse calculation.
+related_formalizations:
+  - id: https://palomar-registry.org/entry?id=PALOMAR-2026-11-19-000013&version=1
+    relationship: builds-on
+    note: Earlier classification under finite measurement windows, including integer exponent selection. The present inverse uses exact readouts and a supplied exponent.
+  - id: https://github.com/stalex444/pdt-arithmetic-classification/tree/96ec711a1dc10a81ede064976f1fd19a9a94690f
+    relationship: builds-on
+    note: Pinned source for the three formulas and rounded centers. The present package includes their relevant definitions and depends only on Mathlib.
+status:
+  scope: >-
+    Inversion of the specified map on real bases a,b greater than one at a fixed positive natural exponent.
+    The exact two-input example uses p=15 and fixed decimal centers, with branches and the strong predictions
+    enclosed by rationals. The general compatibility theorem assumes a positive weak reading and an admissible solution of the ratio cubic.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: [propext, Classical.choice, Quot.sound]
+automation:
+  methods:
+    - method: agent
+      models: [OpenAI GPT-6]
+      framework: OpenAI Codex in ChatGPT Work Mode
+      tool_setup: Pinned Lean and Mathlib, Lake comparator, and an independent mpmath replay of the branch values.
+      cost:
+        wall_time: not tracked
+        spend_usd: not tracked
+        hardware: local machine
+      prompting_notes: Stephanie Alexander requested a formal inverse theorem for her three gauge formulas, building on the common product and the role of exponent 15 in her earlier classification.
+  spend_usd: not tracked
+  notes: AI-assisted mathematical development, proof implementation and numerical cross-checks.
+fidelity:
+  divergences: >-
+    Observables are real functions taken from the earlier registration. The empirical inputs mix the low-energy
+    electromagnetic convention and Z-scale MS-bar quantities. Their reported uncertainties and the experimental
+    strong value are used in the documentation. The formal statements concern the specified maps and exact
+    rounded centers. The fitted bases differ from the cubic and quartic roots. A dynamical derivation or
+    common-scale evolution of the gauge couplings is outside the formal claim.
+review:
+  status: self-assessed
+  reviewers: []
+  notes: Local formal verification and source review. Registry review is pending.
+alignment:
+  namespace: PDTGauge.Result
+  statements:
+    - {source: Exactly two fits to the electroweak central values and certified strong intervals, lean: PDTGauge.Result.two_electroweak_solutions, module: Solution, status: proved}
+    - {source: The electromagnetic input fixes the common ruler, lean: PDTGauge.Result.electromagnetic_fixes_ruler, module: Solution, status: proved}
+    - {source: Weak response turns at seven sixths, lean: PDTGauge.Result.weak_turn, module: Solution, status: proved}
+    - {source: One inverse on each weak branch in the two-root regime, lean: PDTGauge.Result.two_weak_branches, module: Solution, status: proved}
+    - {source: Both observations factor through the ruler and its split, lean: PDTGauge.Result.ruler_factorization, module: Solution, status: proved}
+    - {source: The strong observable orders splits of equal weak value, lean: PDTGauge.Result.branch_order, module: Solution, status: proved}
+    - {source: Existence and uniqueness of the physical root of the ratio cubic, lean: PDTGauge.Result.inverse_from_ratio, module: Solution, status: proved}
+    - {source: Universal scaled cubic and recovery of the split, lean: PDTGauge.Result.scaled_inverse_cubic, module: Solution, status: proved}
+    - {source: Compatibility of a proposed triple after cubic inversion, lean: PDTGauge.Result.compatible_iff, module: Solution, status: proved}
+    - {source: Joint identifiability at any fixed positive exponent, lean: PDTGauge.Result.three_readings_identify, module: Solution, status: proved}
+    - {source: Position of the real quartic root above one, lean: PDTGauge.Result.quartic_side, module: Solution, status: proved}
