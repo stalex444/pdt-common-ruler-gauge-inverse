@@ -1,23 +1,8 @@
 {
   "challenge_module": "Challenge",
-  "solution_module": "Solution",
+  "solution_module": "Classification",
   "theorem_names": [
-    "PDTGauge.Result.joint_degree_classification",
-    "PDTGauge.Result.degrees_of_single_readings",
-    "PDTGauge.Result.nonresonant_field_recovery",
-    "PDTGauge.Result.gauge_functions_generate",
-    "PDTGauge.Result.explicit_gauge_inverse",
-    "PDTGauge.Result.two_electroweak_solutions",
-    "PDTGauge.Result.electromagnetic_fixes_ruler",
-    "PDTGauge.Result.weak_turn",
-    "PDTGauge.Result.two_weak_branches",
-    "PDTGauge.Result.ruler_factorization",
-    "PDTGauge.Result.branch_order",
-    "PDTGauge.Result.inverse_from_ratio",
-    "PDTGauge.Result.scaled_inverse_cubic",
-    "PDTGauge.Result.compatible_iff",
-    "PDTGauge.Result.three_readings_identify",
-    "PDTGauge.Result.quartic_side"
+    "PDTGauge.Result.joint_degree_classification"
   ],
   "permitted_axioms": [
     "propext",

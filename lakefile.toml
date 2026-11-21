@@ -14,4 +14,7 @@ globs = ["CommonRuler.+"]
 name = "Challenge"
 
 [[lean_lib]]
+name = "Classification"
+
+[[lean_lib]]
 name = "Solution"
